@@ -117,7 +117,9 @@ export default function ModalView({
           <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => press()}>
-            <Text style={styles.textStyle}>Enviar informacion</Text>
+            <Text style={styles.textStyle}>
+              {keyItem === '' ? 'Guardar' : 'Editar'}
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -181,5 +183,5 @@ const styles = StyleSheet.create({
     top: 2,
     color: '#0a0a0a',
     backgroundColor: 'rgba(122,122,122,0.65)'
-  },
+  }
 });

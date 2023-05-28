@@ -27,7 +27,7 @@ function App() {
   const [citas, setCitas] = useState([]);
   const [citaEdit, setCitaEdit] = useState({});
 
-  console.log(citas)
+  console.log(citas);
   const editPress = item => {
     setCitaEdit(item);
     setModalShow(true);
@@ -55,12 +55,17 @@ function App() {
       <Text style={styles.subtext}>Veterinaria Native</Text>
       <ModalView {...{citas, setCitas, setModalShow, modalShow, citaEdit}} />
       <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalShow(true)}>
+        style={styles.button}
+        onPress={() => {
+          setCitaEdit({});
+          setModalShow(true);
+        }}>
         <Text style={styles.textStyle}>Registrar cita</Text>
       </Pressable>
       <View>
-        {citas.length === 0 && <Text>No hay citas</Text>}
+        {citas.length === 0 && (
+          <Text style={{textAlign: 'center'}}>No hay citas pendientes</Text>
+        )}
         <FlatList
           data={citas}
           renderItem={({item}) => (
@@ -100,16 +105,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 15,
     elevation: 2,
-    color: '#fff'
-  },
-  buttonOpen: {
+    color: '#fff',
     backgroundColor: '#2196F3'
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
-  }
+  },
 });
 
 export default App;
