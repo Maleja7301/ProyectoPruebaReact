@@ -8,7 +8,7 @@ const TextInputCustom = props => {
       <TextInput
         placeholder={props.placeholder}
         key={props.name}
-        style={styles.input}
+        style={[props.style, styles.input]}
         {...props}
       />
     </View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#575757',
     borderRadius: 10,
-    paddingLeft: 12,
+    paddingLeft: 12
   },
   textInput: {
     color: '#000',
@@ -58,5 +58,5 @@ const styles = StyleSheet.create({
   },
   dropdownTextStyles: {
     width: 300,
-  },
+  }
 });
